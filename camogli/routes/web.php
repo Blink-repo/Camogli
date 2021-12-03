@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\categoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('category/create', function () {
+    return view('create');
+
+});
+
+Route::get('category',[categoryController::class,'index'])->name('Category');
+Route::post('category/store',[categoryController::class,'store']);
+Route::middleware(['auth:sanctum',
+ 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
