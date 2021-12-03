@@ -19,14 +19,18 @@ Route::get('/', function () {
 
 });
 
-Route::get('category/create', function () {
-    return view('create');
 
+Route::group(['prefix' => 'category', 'as' => 'category.'], function (){
+    Route::get('/',[categoryController::class,'index'])->name('index');
+    Route::post('/store',[categoryController::class,'store']);
+    Route::get('/create',[categoryController::class, 'create'])->name('create');
 });
 
-Route::get('category',[categoryController::class,'index'])->name('Category');
-Route::post('category/store',[categoryController::class,'store']);
+
 Route::middleware(['auth:sanctum',
  'verified'])->get('/dashboard', function () {
     return view('dashboard');
+
 })->name('dashboard');
+
+
