@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\itemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,20 @@ Route::group(['prefix' => 'category', 'as' => 'category.'], function (){
     Route::get('/edit/{id}', [categoryController::class, 'edit'])->name('edit');
 });
 
+Route::group(['prefix' => 'item', 'as' => 'item.'], function (){
+    Route::get('/',[itemController::class,'index'])->name('index');
+    Route::post('/store',[itemController::class,'store']);
+    Route::get('/create',[itemController::class, 'create'])->name('create');
+    Route::delete('/delete/{id}', [itemController::class, 'destroy'])->name('delete');
+    Route::put('/update/{id}', [itemController::class, 'update'])->name('update');
+    Route::get('/edit/{id}', [itemController::class, 'edit'])->name('edit');
+});
+
+
 
 Route::middleware(['auth:sanctum',
  'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->name('dashboard');
 
 

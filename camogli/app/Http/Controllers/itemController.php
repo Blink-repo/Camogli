@@ -3,39 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\item;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class categoryController extends Controller
+class itemController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-
      */
     public function index()
     {
-        $category = category::all();
-        return view("admin.category.Category")->with('categories', $category);
+        $items = item::all();
+        $categories = category::all();
+
+        return view("admin.items.item")->with('items', $items)->with('categories', $categories);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-
      */
     public function create()
     {
-        return view("admin.category.create");
+        $categories = category::all();
+
+        return view("admin.items.create")->with('categories', $categories);
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
     public function store(Request $request)
     {
         $request->validate([
             "name"=>"required",
             "image"=>"required"
-            ]);
+        ]);
 
         $store = $request->all();
         if(array_key_exists('active', $store)){
@@ -45,16 +52,22 @@ class categoryController extends Controller
             $store['featured'] = 1;
         }
 
-        $category = category::create($store);
+        $item = item::create($store);
 
         if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $category->addMediaFromRequest('image')->toMediaCollection('category');
+            $item->addMediaFromRequest('image')->toMediaCollection('item');
         }else{
-            return 'something went wrong';
+            return 'Invalid File';
         }
-        return redirect('/category');
+        return redirect('/item');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         //
@@ -67,9 +80,10 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        $category = category::find($id);
-        return view("admin.category.edit")->with('category', $category);
+        $item = item::find($id);
+        $categories = category::all();
 
+        return view("admin.items.edit")->with('item', $item)->with('categories', $categories);
     }
 
     /**
@@ -80,14 +94,19 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = category::find($id);
+
+        $item = item::find($id);
 
         $store = $request->all();
         if(array_key_exists('active', $store)){
             $store['active'] = 1;
+        }else{
+            $store['active'] = 0;
         }
         if(array_key_exists('featured', $store)){
             $store['featured'] = 1;
+        }else{
+            $store['featured'] = 0;
         }
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
@@ -96,12 +115,12 @@ class categoryController extends Controller
             if (!$Media == null)
                 $Media->delete();
 
-            $category->addMediaFromRequest('image')->toMediaCollection('category');
+            $item->addMediaFromRequest('image')->toMediaCollection('item');
         }
 
-        $category->update($store);
+        $item->update($store);
 
-        return redirect('/category');
+        return redirect('/item');
     }
 
     /**
@@ -111,7 +130,8 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        category::find($id)->delete();
-        return redirect('/category');
+        item::find($id)->delete();
+        return redirect('/item');
+
     }
 }
