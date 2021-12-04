@@ -16,7 +16,6 @@ use App\Http\Controllers\categoryController;
 
 Route::get('/', function () {
     return view('welcome');
-
 });
 
 
@@ -24,13 +23,15 @@ Route::group(['prefix' => 'category', 'as' => 'category.'], function (){
     Route::get('/',[categoryController::class,'index'])->name('index');
     Route::post('/store',[categoryController::class,'store']);
     Route::get('/create',[categoryController::class, 'create'])->name('create');
+    Route::delete('/delete/{id}', [categoryController::class, 'destroy'])->name('delete');
+    Route::put('/update/{id}', [categoryController::class, 'update'])->name('update');
+    Route::get('/edit/{id}', [categoryController::class, 'edit'])->name('edit');
 });
 
 
 Route::middleware(['auth:sanctum',
  'verified'])->get('/dashboard', function () {
     return view('dashboard');
-
 })->name('dashboard');
 
 
