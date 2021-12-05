@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\itemController;
+use App\Http\Controllers\restaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,12 @@ Route::group(['prefix' => 'item', 'as' => 'item.'], function (){
     Route::delete('/delete/{id}', [itemController::class, 'destroy'])->name('delete');
     Route::put('/update/{id}', [itemController::class, 'update'])->name('update');
     Route::get('/edit/{id}', [itemController::class, 'edit'])->name('edit');
+});
+
+Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function (){
+    Route::get('/',[restaurantController::class,'index'])->name('index');
+    Route::post('/store',[restaurantController::class,'store']);
+    Route::put('/update/{id}', [restaurantController::class, 'update'])->name('update');
 });
 
 
