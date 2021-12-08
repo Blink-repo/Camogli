@@ -15,7 +15,7 @@ class itemSeeder extends Seeder
     public function run()
     {
         item::firstOrCreate([
-            "category_id"=>28,
+            "category_id"=>1,
             "name"=>"Pasta",
             "description"=>"this is a description!",
             "price"=>2.30,
@@ -24,7 +24,7 @@ class itemSeeder extends Seeder
 
         ]);
         item::firstOrCreate([
-            "category_id"=>29,
+            "category_id"=>2,
             "name"=>"tomaat",
             "description"=>"this is a description!",
             "price"=>5.70,
@@ -33,7 +33,7 @@ class itemSeeder extends Seeder
 
         ]);
         item::firstOrCreate([
-            "category_id"=>30,
+            "category_id"=>3,
             "name"=>"water",
             "description"=>"this is a description!",
             "price"=>1.30,
@@ -41,7 +41,7 @@ class itemSeeder extends Seeder
             "active"=>true
         ]);
         item::firstOrCreate([
-            "category_id"=>31,
+            "category_id"=>4,
             "name"=>"mozzarella parma",
             "description"=>"this is a description!",
             "price"=>22.00,
@@ -49,7 +49,7 @@ class itemSeeder extends Seeder
             "active"=>true
         ]);
         item::firstOrCreate([
-            "category_id"=>32,
+            "category_id"=>5,
             "name"=>"Homemade Panna Cotta",
             "description"=>"this is a description!",
             "price"=>8.0,
@@ -57,7 +57,7 @@ class itemSeeder extends Seeder
             "active"=>true
         ]);
         item::firstOrCreate([
-            "category_id"=>33,
+            "category_id"=>6,
             "name"=>"Carpaccio runds",
             "description"=>"this is a description!",
             "price"=>9.00,
@@ -65,7 +65,7 @@ class itemSeeder extends Seeder
             "active"=>true
         ]);
         item::firstOrCreate([
-            "category_id"=>35,
+            "category_id"=>7,
             "name"=>"insalata camogli",
             "description"=>"this is a description!",
             "price"=>7.50,

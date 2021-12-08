@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\itemController;
 use App\Http\Controllers\restaurantController;
+use App\Http\Controllers\dashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,6 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function (){
 
 
 Route::middleware(['auth:sanctum',
- 'verified'])->get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+ 'verified'])->get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
 
 
