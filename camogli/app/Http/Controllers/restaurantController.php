@@ -72,6 +72,7 @@ class restaurantController extends Controller
 
         $store = $request->all();
 
+        //dum dum change to a for loop you dum bitch shame on you!
 
         if($store['maopen'] == null){
             $store['maopen'] = 'closed';
