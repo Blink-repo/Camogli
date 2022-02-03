@@ -8,10 +8,10 @@
     </span>
 
     <ul class="md:flex md:items-center md:px-0 px-3 md:pb-0 md:static absolute
-                bg-black md:w-auto w-full top-14 duration-700 ease-in"
-        :class="[open ? 'left-0' : 'hidden']">
-      <li class="md:mx-4 md:my-0 my-6" v-for="link in links">
-        <a :href="link.link" class="text-lg hover:bg-white rounded-full px-4 hover:text-black">{{ link.name }}</a>
+                bg-black md:w-auto w-full duration-500 ease-in-out top-14 overflow-hidden left-0"
+        :class="[open ? 'bottom-0' : 'bottom-full']">
+      <li class="md:mx-4 md:my-0 my-6 hover:bg-white hover:text-black rounded-lg duration-100 ease-in " v-for="link in links">
+        <a :href="link.link" class="text-lg px-4">{{ link.name }}</a>
       </li>
     </ul>
   </div>
