@@ -1,28 +1,67 @@
 <template>
-  <div class="">
-    <navbar/>
-    <h1 class="text-4xl mx-8 m-4 ">Camogli Mechelen <span class="font-bold">Pasta</span> bar <span class="font-bold">Italiaanse</span>  Gerechten</h1>
-    <h1 class="font-bold mx-8 m-2 text-2xl">Food</h1>
-    <div class="flex items-center justify-center">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        <div>
-          <card/>
-        </div>
+<div class="">
+  <div class="h-screen">
+    <div class="bg-black text-white py-3.5 px-6 h-1/2 shadow md:flex justify-between items-center">
+        <h1 class="text-2xl font-semibold text-bal top-0 left-0">Camogli</h1>
+ </div>
+    <div class="flex items-center justify-center rounded-full relative -top-5" >
+    <div class="flex border-2 border-gray-200 rounded-full shadow-lg shadow-gray-500/50  border-5 border-indigo-500 lg:w-8/12 w-96">
+        <input type="text" class="px-4 py-2 rounded-full w-full" placeholder="Search bitches in the neighbourhood...">
+    </div>
+</div>
+      <div class="flex items-center gap-10 overflow-x-auto m-4">
+          <category/>
+          <category/>
+          <category/>
+          <category/>
+          <category/>
+        
       </div>
+      <div class="flex item-center"> 
+        <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
+       <pmbtn text="bekijk alles"/>
+      </div>
+      <div class="flex items-center overflow-x-auto">
+            <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+          </div>
+           <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+            </div>
+            <div class="w-50"> 
+              <card/>
+          </div>
+        </div>
     </div>
   </div>
 </template>
-
 <script>
 import pmbtn from "@/components/pmbtn";
-import navbar from "@/components/navbar";
 import card from "@/components/card";
+import category from "@/components/category";
 export default {
   name: 'IndexPage',
   components:{
     pmbtn,
-    navbar,
-    card
+    card,
+    category
+  
   }
 }
 </script>
+

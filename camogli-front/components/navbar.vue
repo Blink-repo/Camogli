@@ -34,6 +34,7 @@ export default {
       {name: "About", link: "#"},
       {name: "Food", link: "#"},
       {name: "Contact", link: "#"},
+
     ]
   }
 }
