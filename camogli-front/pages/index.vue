@@ -61,6 +61,31 @@ export default {
     card,
     category
   
+    navbar,
+    card
+  },
+  data(){
+    return{
+      items: []
+    }
+  },
+  async mounted() {
+    this.getItems();
+
+  },
+  methods:{
+    async getItems() {
+      await this.$axios
+        .$get('/api/items', {
+          headers: { "Access-Control-Allow-Origin": "*" }
+        })
+        .then(r => {
+          for (let e of r){
+            this.items.push(e);
+          }
+        });
+    }
+
   }
 }
 </script>

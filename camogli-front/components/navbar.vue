@@ -11,7 +11,7 @@
                 bg-black md:w-auto w-full duration-500 ease-in-out top-14 overflow-hidden left-0"
         :class="[open ? 'bottom-0' : 'bottom-full']">
       <li class="md:mx-4 md:my-0 my-6 hover:bg-white hover:text-black rounded-lg duration-100 ease-in " v-for="link in links">
-        <a :href="link.link" class="text-lg px-4">{{ link.name }}</a>
+        <a :href="link.link" class="text-lg px-4" :class="[open ? 'text-2xl' : '']">{{ link.name }}</a>
       </li>
     </ul>
   </div>
