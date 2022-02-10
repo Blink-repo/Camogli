@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen flex flex-col">
-    <div class="bg-black text-white py-3.5 px-6 h-1/3 shadow items-center">
+    <div class="background text-white py-3.5 px-6 h-1/3 shadow items-center">
         <h1 class="text-2xl font-semibold top-0 left-0">Camogli</h1>
     </div>
     <div class="">
@@ -21,6 +21,9 @@
           <card :name="item.name" :price="item.price" :img="item.image"/>
         </div>
       </div>
+      <div class="flex justify-center">
+        <floating-navbar class="absolute bottom-10 "/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +33,7 @@ import pmbtn from "@/components/pmbtn";
 import card from "@/components/card";
 import category from "@/components/category";
 import navbar from "@/components/category";
+import floatingNavbar from "@/components/floatingNavbar";
 import { dragscroll } from 'vue-dragscroll';
 
 export default {
@@ -39,6 +43,7 @@ export default {
     card,
     category,
     navbar,
+    floatingNavbar,
   },
   directives: {
     dragscroll
@@ -89,3 +94,10 @@ export default {
 }
 </script>
 
+<style>
+.background{
+  background: url("assets/Images/Simple Shiny.svg") no-repeat;
+  background-size: cover;
+}
+
+</style>
