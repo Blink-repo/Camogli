@@ -1,10 +1,10 @@
 <template>
- <div class="bg-gray-300 p-2 rounded-lg bg-opacity-40 hover:shadow-lg w-48 py-8 m-2 duration-100 ease-in">
-   <img :src="img" alt="" class="w-full object-cover">
-   <h1 class="font-bold text-center text-xl m-2">{{name}}</h1>
+ <div class="bg-gray-300 rounded-2xl bg-opacity-40 hover:shadow-lg w-56 m-2 duration-100 ease-in pb-2">
+   <img src="../assets/Images/camoglichap.png" alt="" class="w-full object-cover rounded-t-2xl" draggable="false">
+   <h1 class="font-bold text-md m-4">{{name}}</h1>
    <div class="grid grid-cols-2 gap-4">
-     <h1 class="font-bold text-left ml-2">${{price}}</h1>
-     <i class="bi bi-plus-circle-fill text-right mr-1"></i>
+     <h1 class="text-left ml-4">${{price}}</h1>
+     <i class="bi bi-plus-circle-fill text-right mr-4"></i>
    </div>
  </div>
 </template>
