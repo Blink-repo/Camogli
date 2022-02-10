@@ -5,20 +5,26 @@
     </div>
     <div class="">
       <div class="flex items-center justify-center rounded-full relative -top-5" >
-        <div class="flex border-2 border-gray-200 rounded-full shadow-lg shadow-gray-500/50  border-5 border-indigo-500 lg:w-8/12 w-96">
+        <div class="flex border-2 border-gray-500 rounded-full shadow-lg shadow-gray-500/50  border-5 lg:w-8/12 w-96">
           <input type="text" class="px-4 py-2 rounded-full w-full" placeholder="Search bitches in the neighbourhood...">
         </div>
       </div>
-      <div v-dragscroll class="flex items-center gap-10 m-4 overflow-hidden">
+      <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
+        <category/>
+        <category/>
+        <category/>
+        <category/>
+        <category/>
+        <category/>
         <category/>
         <category/>
         <category/>
         <category/>
         <category/>
       </div>
-      <div class="flex item-center">
+      <div class="flex item-center ">
         <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
-        <pmbtn text="bekijk alles"/>
+        <pmbtn text="bekijk alles" class=" m-3"/>
       </div>
       <div v-dragscroll class="flex items-center overflow-hidden">
         <div class="w-50" v-for="item in items" :key="item.id">
