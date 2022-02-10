@@ -10,25 +10,15 @@
         </div>
       </div>
       <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
-        <category/>
+        <category v-for="category in categories" :key="category.id" :name="category.name" :img="category.image" v-if="category.featured"/>
       </div>
       <div class="flex item-center ">
         <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
         <pmbtn text="bekijk alles" class=" m-3"/>
       </div>
       <div v-dragscroll class="flex items-center overflow-hidden">
-        <div class="w-50" v-for="item in items" :key="item.id">
-          <card :name="item.name" :price="item.price"/>
+        <div class="w-50" v-for="item in items" :key="item.id" v-if="item.featured">
+          <card :name="item.name" :price="item.price" :img="item.image"/>
         </div>
       </div>
     </div>
@@ -55,11 +45,13 @@ export default {
   },
   data(){
     return{
-      items: []
+      items: [],
+      categories: []
     }
   },
   async mounted() {
     await this.getItems();
+    await this.getCategories();
 
   },
   methods:{
@@ -72,6 +64,21 @@ export default {
           .then(r => {
             for (let e of r){
               this.items.push(e);
+            }
+          });
+      }catch (e) {
+
+      }
+    },
+    async getCategories() {
+      try {
+        await this.$axios
+          .$get('/api/categories', {
+            headers: { "Access-Control-Allow-Origin": "*" }
+          })
+          .then(r => {
+            for (let e of r){
+              this.categories.push(e);
             }
           });
       }catch (e) {
