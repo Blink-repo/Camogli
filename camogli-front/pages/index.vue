@@ -34,7 +34,7 @@ import pmbtn from "@/components/pmbtn";
 import card from "@/components/card";
 import category from "@/components/category";
 import navbar from "@/components/category";
-import { dragscroll } from 'vue-dragscroll'
+import { dragscroll } from 'vue-dragscroll';
 
 export default {
   name: 'IndexPage',
@@ -53,22 +53,25 @@ export default {
     }
   },
   async mounted() {
-    this.getItems();
+    await this.getItems();
 
   },
   methods:{
     async getItems() {
-      await this.$axios
-        .$get('/api/items', {
-          headers: { "Access-Control-Allow-Origin": "*" }
-        })
-        .then(r => {
-          for (let e of r){
-            this.items.push(e);
-          }
-        });
-    }
+      try {
+        await this.$axios
+          .$get('/api/items', {
+            headers: { "Access-Control-Allow-Origin": "*" }
+          })
+          .then(r => {
+            for (let e of r){
+              this.items.push(e);
+            }
+          });
+      }catch (e) {
 
+      }
+    }
   }
 }
 </script>
