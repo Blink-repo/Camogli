@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen flex flex-col">
-    <div class="background text-white py-3.5 px-6 h-1/3 shadow items-center">
+    <div class="background text-white py-3.5 px-6 h-1/3 items-center">
         <h1 class="text-2xl font-semibold top-0 left-0">Camogli</h1>
     </div>
     <div class="">
