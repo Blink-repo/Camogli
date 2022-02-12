@@ -69,7 +69,6 @@ class categoryController extends Controller
     {
         $category = category::find($id);
         return view("admin.category.edit")->with('category', $category);
-
     }
 
     /**

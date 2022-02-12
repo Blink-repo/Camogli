@@ -1,12 +1,15 @@
 <template>
-  <div class="h-screen flex flex-col">
-    <div class="background text-white py-3.5 px-6 h-1/3 items-center">
-        <h1 class="text-2xl font-semibold top-0 left-0">Camogli</h1>
+  <div class="h-screen flex flex-col bg-gray-200">
+    <div class="py-3.5 px-6 h-1/6 items-center bg-gray-100 rounded-b-3xl">
+        <h1 class="text-2xl font-semibold top-0 left-0 text-yellow-700">Camogli</h1>
+      <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
+
     </div>
-    <div class="">
-      <div class="flex items-center justify-center rounded-full relative -top-5" >
-        <div class="flex border-2 border-gray-500 rounded-full shadow-lg shadow-gray-500/50  border-5 lg:w-8/12 w-96">
-          <input type="text" class="px-4 py-2 rounded-full w-full" placeholder="Search bitches in the neighbourhood...">
+    <div class="bg-gray-200">
+      <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in -top-5" >
+        <div class="flex rounded-xl lg:w-8/12 w-96">
+          <input type="text" class="px-4 py-2 rounded-xl w-full shadow-lg shadow-gray-500/50 duration-300 ease-in"
+                  placeholder="Search bitches in the neighbourhood...">
         </div>
       </div>
       <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
@@ -14,7 +17,10 @@
       </div>
       <div class="flex item-center ">
         <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
-        <pmbtn text="bekijk alles" class=" m-3"/>
+        <div class="flex items-center justify-center">
+          <nuxt-link to="/shop2"><pmbtn text="bekijk alles" class=""/></nuxt-link>
+          <i class="bi bi-caret-right-fill" style="color:#a16207"></i>
+        </div>
       </div>
       <div v-dragscroll class="flex items-center overflow-hidden">
         <div class="w-50" v-for="item in items" :key="item.id" v-if="item.featured">
@@ -26,6 +32,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>

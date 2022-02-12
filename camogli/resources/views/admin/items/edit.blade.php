@@ -70,7 +70,7 @@
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Op hoofdpagina weergeven
                                 </label>
-                                <input class="appearance-none block bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="checkbox" name="featured" @if($item->active) checked @endif>
+                                <input class="appearance-none block bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="checkbox" name="featured" @if($item->featured) checked @endif>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
