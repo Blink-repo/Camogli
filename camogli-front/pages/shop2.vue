@@ -136,9 +136,6 @@ export default {
 }}
 </script>
 <style>
-.background{
-  background: url("assets/Images/Wave-5.svg") no-repeat;
-  background-size: cover;
-}
+
 
 </style>
