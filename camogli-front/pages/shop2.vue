@@ -1,12 +1,17 @@
 <template>
-  <div class="h-screen bg-gray-200">
-    <div class=" rounded-b-3xl bg-gray-100 text-black py-3.5 px-6 h-1/6 lg:h-1/4 content-center">
+  <div class="h-screen w-screen bg-gray-200">
+    <div class=" rounded-b-3xl bg-gray-100 text-black py-3.5 px-6 h-1/6 lg:h-2/6 content-center">
       <div class="flex justify-between items-center align-center">
         <h1 class="text-2xl text-yellow-700 font-semibold top-0 mt-4">Camogli</h1>
         <button v-on:click="show = !show"><i class="bi bi-search text-yellow-700 hover:text-3xl"></i>
         </button>
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
+      <div class="flex justify-center items-center align-center">
+      <div class="hidden mt-5 w-4/6 h-40  lg:flex">
+        <homeCard/>
+      </div>
+      </div>
     </div>
 
     <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in" :class="[show ? '-top-5' : 'top-0']" >
@@ -37,17 +42,19 @@
           </div>
         </div>
       </div>
-      <div v-show="card_details" class="absolute inset-0">
-        <card-details :item="selected" />
+      <div class="flex justify-center">
+    <floating-navbar class="fixed bottom-2 "/>
+    </div>
+      <div v-show="card_details" class="fixed -top-20">
+        <card-details :item="selected" @close="closeCard"/>
+
       </div>
 
 
-
+    
     </div>
 
-    <div class="flex justify-center">
-    <floating-navbar class="fixed bottom-10 "/>
-    </div>
+    
   </div>
 </template>
 
@@ -57,7 +64,7 @@ import { dragscroll } from 'vue-dragscroll';
 import scard from "@/components/shopCard";
 import card from "@/components/card";
 import floatingCart from "@/components/floatingShoppingCart";
-
+import homeCard from "@/components/homeCard";
 
 export default {
     name: 'shop',
@@ -65,7 +72,8 @@ export default {
         category,
         card,
         scard,
-        floatingCart
+        floatingCart,
+        homeCard
     },
     directives:{
         dragscroll,
@@ -85,6 +93,9 @@ export default {
         await this.getCategories();
     },
     methods:{
+      closeCard (){
+        card_details = false;
+      },
        async getItems() {
       try {
         await this.$axios
