@@ -1,20 +1,16 @@
 <template>
   <div class="h-screen w-screen bg-gray-200">
-    <div class=" rounded-b-3xl bg-gray-100 text-black py-3.5 px-6 h-1/6 lg:h-2/6 content-center">
+    <div class=" rounded-b-3xl bg-gray-100 text-black py-3.5 px-6 h-1/5 lg:h-1/6 content-center">
       <div class="flex justify-between items-center align-center">
         <h1 class="text-2xl text-yellow-700 font-semibold top-0 mt-4">Camogli</h1>
         <button v-on:click="show = !show"><i class="bi bi-search text-yellow-700 hover:text-3xl"></i>
         </button>
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
-      <div class="flex justify-center items-center align-center">
-      <div class="hidden mt-5 w-4/6 h-40  lg:flex">
-        <homeCard/>
-      </div>
-      </div>
+     
     </div>
 
-    <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in" :class="[show ? '-top-5' : 'top-0']" >
+    <div class="flex items-center justify-center rounded-xl relative duration-800 ease-in" :class="[show ? '-top-5' : '-top-5']" >
       <div class="flex rounded-xl lg:w-8/12 w-96">
         <input type="text" class="px-4 py-2 rounded-xl w-full shadow-lg shadow-gray-500/50 duration-300 ease-in"
                :class="[show ? 'opacity-100' : 'opacity-0']" placeholder="Search bitches in the neighbourhood...">
