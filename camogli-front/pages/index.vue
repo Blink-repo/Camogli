@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen flex flex-col bg-gray-200">
-    <div class="py-3.5 px-6 lg:h-2/6 items-center bg-gray-100 rounded-b-3xl">
+    <div class="py-3.5 px-6  items-center bg-gray-100 rounded-b-3xl">
     <div class="flex justify-between items-center align-center">
         <h1 class="text-2xl text-yellow-700 font-semibold top-0 mt-4">Camogli</h1>
         <button v-on:click="show = !show"><i class="bi bi-search text-yellow-700 hover:text-3xl"></i>
@@ -9,10 +9,10 @@
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
 
- <div class="flex justify-center items-center align-center">
-      <div class="mt-3 pb-1 w-11/12 h-48">
-        <homeCard status="open" time="tot 19h"/>
-      </div>
+      <div class="flex justify-center items-center align-center pb-5">
+        <div class="mt-3 pb-2 w-11/12 h-48">
+          <homeCard status="open" time="Tot 19h"/>
+        </div>
       </div>
     </div>
     
@@ -39,8 +39,8 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <floating-navbar class="absolute bottom-10 "/>
-      </div>
+    <floating-navbar class="fixed bottom-2 "/>
+    </div>
     </div>
   </div>
 
