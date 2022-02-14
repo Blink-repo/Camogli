@@ -5,7 +5,7 @@
         <h1 class="text-2xl text-yellow-700 font-semibold top-0 mt-4">Camogli</h1>
         <button v-on:click="show = !show"><i class="bi bi-search text-yellow-700 hover:text-3xl"></i>
         </button>
-        
+
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
 
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="bg-gray-200">
       <div class="flex items-center justify-center rounded-xl relative duration-800 ease-in" :class="[show ? '-top-5' : '-top-5']" >
       <div class="flex rounded-xl lg:w-8/12 w-96">
@@ -115,7 +115,7 @@ export default {
 
 <style>
 .background{
-  background: url("assets/Images/wave-1.svg") no-repeat;
+  background: url("assets/Images/Wave-1.svg") no-repeat;
   background-size: cover;
 }
 

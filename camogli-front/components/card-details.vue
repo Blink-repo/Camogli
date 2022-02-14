@@ -1,17 +1,18 @@
 <template>
-  <div class="absolute h-screen w-screen ">
-    <div class="h-1/6 bg-transparent">
+  <div class="absolute h-screen w-screen">
+    <div class="h-1/4 bg-transparent duration-700 ease-in">
     </div>
     <div class="flex justify-center">
-      <div class="p-5 h-5/6 bg-white rounded-t-3xl w-5/6 rounded-3xl md:w-4/6 lg:w-3/6 xl:w-2/6 shadow-2xl">
-            <button @click="$emit('close')" ><i class="text-right bi bi-x"></i></button>
+      <div class="p-5 h-screen sm:h-5/6 sm:w-5/6 lg:w-4/6 xl:w-3/6 2xl:w-2/6 w-screen bg-white rounded-t-3xl rounded-3xl shadow-2xl">
+        <i v-on:click="close" class="text-right bi bi-x cursor-pointer"></i>
+
         <div class="h-3/6 flex justify-center">
-          <img :src="item.image" class="h-60 md:h-72 lg:h-80 xl:h-96 rounded-2xl shadow-2xl">
+          <img :src="item.image" class="object-cover h-96 w-full rounded-2xl shadow-2xl">
         </div>
-        <div class="h-3/6">
+        <div class="h-3/6 mt-8">
           <h1 class="clear-both m-4 text-4xl">{{item.name}}</h1>
           <p class="text-gray-500 m-5">{{item.description}}</p>
-          <div class="grid grid-cols-2">
+          <div class="flex m-4">
             <div class="custom-number-input mt-auto">
               <div class="flex w-full rounded-lg relative bg-transparent mt-1">
                 <button @click="decrement" class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full px-5 py-4 w-20 rounded-l-xl cursor-pointer outline-none">
@@ -23,12 +24,11 @@
                 </button>
               </div>
             </div>
-            <button class="bg-black hover:bg-yellow-700 text-white text-lg rounded-xl ml-4 w-full">Toevoegen <span class="">${{item.price}}</span></button>
+            <button class="bg-black hover:bg-yellow-700 text-white text-lg rounded-xl ml-4 w-full">Toevoegen <span class="p-4">${{total_price}}</span></button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -40,9 +40,12 @@ export default {
   },
   data(){
     return{
-      show: true,
-      count:0
+      show: false,
+      count: 1,
+      total_price: 0
     }
+  },
+  mounted() {
   },
   methods: {
   increment () {
@@ -50,14 +53,22 @@ export default {
   },
   decrement () {
     if(this.count > 0){
-    this.count -= 1;}
+    this.count -= 1;
+    }
+  },
+  close (){
+    this.count = 1;
+    this.$emit('close');
   }
 },
   watch: {
     item: function (newVal, oldVal) {
-      // watch it
       console.log("Prop changed: ", newVal, " | was: ", oldVal);
+      this.total_price = this.item.price;
     },
+    count: function (newVal, oldVal){
+      this.total_price = Number(this.item.price * newVal).toFixed(2);
+    }
   },
 }
 </script>

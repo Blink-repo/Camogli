@@ -7,10 +7,10 @@
         </button>
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
-     
+
     </div>
 
-    <div class="flex items-center justify-center rounded-xl relative duration-800 ease-in" :class="[show ? '-top-5' : '-top-5']" >
+    <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in" :class="[show ? '-top-5' : 'top-0']" >
       <div class="flex rounded-xl lg:w-8/12 w-96">
         <input type="text" class="px-4 py-2 rounded-xl w-full shadow-lg shadow-gray-500/50 duration-300 ease-in"
                :class="[show ? 'opacity-100' : 'opacity-0']" placeholder="Search bitches in the neighbourhood...">
@@ -32,25 +32,19 @@
             </div>
           </div>
           <div v-dragscroll class="flex items-center overflow-hidden">
-            <div v-on:click="getSelectedItem(item.id - 1)" class="w-50" v-for="item in items" :key="item.id">
+            <div v-on:click="getSelectedItem(item.id)" class="w-50" v-for="item in items" :key="item.id">
               <card :name="item.name" :price="item.price" :img="item.image" v-if="category.id === item.category_id"/>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex justify-center">
-    <floating-navbar class="fixed bottom-2 "/>
+      <div class="flex justify-center ">
+    <floating-navbar class="fixed bottom-2"/>
     </div>
-      <div v-show="card_details" class="fixed -top-20">
+      <div v-show="card_details" class="fixed duration-300 ease-in" :class="[card_details ? '-top-20' : '']">
         <card-details :item="selected" @close="closeCard"/>
-
       </div>
-
-
-    
     </div>
-
-    
   </div>
 </template>
 
@@ -90,7 +84,7 @@ export default {
     },
     methods:{
       closeCard (){
-        card_details = false;
+        this.card_details = false;
       },
        async getItems() {
       try {
@@ -119,11 +113,14 @@ export default {
             }
           });
       }catch (e) {
-
       }
     },
     getSelectedItem(id){
-      this.selected = this.items[id];
+      for (let i = 0; i < this.items.length; i++){
+        if(this.items[i].id === id){
+          this.selected = this.items[i];
+        }
+      }
       console.log(this.selected);
       this.card_details = true;
 

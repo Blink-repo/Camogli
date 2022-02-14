@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style> 
+<style>
 .background{
   background: url("assets/Images/Wave-1.svg") no-repeat;
   background-size: cover;
