@@ -11,7 +11,7 @@
     </div>
 
     <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in" :class="[show ? '-top-5' : 'top-0']" >
-      <div class="flex rounded-xl lg:w-8/12 w-96">
+      <div class="flex rounded-xl lg:w-8/12 w-11/12">
         <input type="text" class="px-4 py-2 rounded-xl w-full shadow-lg shadow-gray-500/50 duration-300 ease-in"
                :class="[show ? 'opacity-100' : 'opacity-0']" placeholder="Search bitches in the neighbourhood...">
       </div>
@@ -21,11 +21,11 @@
       <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
         <category v-for="category in categories" :key="category.id" :name="category.name" :img="category.image"/>
       </div>
-      <div class="ml-5 mr-5 rounded-tr-3xl">
-        <h1 class="ml-3 text-2xl font-bold">Ons <span class="text-yellow-700">Menu</span></h1>
+      <div class="rounded-tr-3xl">
+        <h1 class="ml-5 text-2xl font-bold">Ons <span class="text-yellow-700">Menu</span></h1>
         <div v-for="category in categories" :key="category.id">
           <div class="flex justify-between">
-            <h1 class="m-3 text-2xl font-semibold">{{category.name}}</h1>
+            <h1 class="m-5 text-2xl font-semibold">{{category.name}}</h1>
             <div class="flex items-center justify-center">
               <pmbtn text="bekijk alles" class=""/>
               <i class="bi bi-caret-right-fill" style="color:#a16207"></i>
@@ -33,12 +33,12 @@
           </div>
           <div v-dragscroll class="flex items-center overflow-hidden">
             <div v-on:click="getSelectedItem(item.id)" class="w-50" v-for="item in items" :key="item.id">
-              <card :name="item.name" :price="item.price" :img="item.image" v-if="category.id === item.category_id"/>
+              <card class="ml-5" :name="item.name" :price="Number(item.price).toFixed(2)" :img="item.image" v-if="category.id === item.category_id"/>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex justify-center ">
+      <div class="flex justify-center">
     <floating-navbar class="fixed bottom-2"/>
     </div>
       <div v-show="card_details" class="fixed duration-300 ease-in" :class="[card_details ? '-top-20' : '']">

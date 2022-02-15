@@ -24,7 +24,7 @@
                 </button>
               </div>
             </div>
-            <button class="bg-black hover:bg-yellow-700 text-white text-lg rounded-xl ml-4 w-full">Toevoegen <span class="p-4">${{total_price}}</span></button>
+            <button class="bg-black hover:bg-yellow-700 text-white text-lg rounded-xl ml-4 w-full">Toevoegen <span class="p-4">€{{total_price}}</span></button>
           </div>
         </div>
       </div>
@@ -64,10 +64,13 @@ export default {
   watch: {
     item: function (newVal, oldVal) {
       console.log("Prop changed: ", newVal, " | was: ", oldVal);
-      this.total_price = this.item.price;
+      this.total_price = Number(this.item.price).toFixed(2);
     },
     count: function (newVal, oldVal){
       this.total_price = Number(this.item.price * newVal).toFixed(2);
+      if(newVal === 0){
+        this.count = 1;
+      }
     }
   },
 }

@@ -14,7 +14,7 @@ class itemSeeder extends Seeder
      */
     public function run()
     {
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>1,
             "name"=>"Pasta",
             "description"=>"this is a description!",
@@ -23,7 +23,7 @@ class itemSeeder extends Seeder
             "active"=>true
 
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>2,
             "name"=>"tomaat",
             "description"=>"this is a description!",
@@ -32,7 +32,7 @@ class itemSeeder extends Seeder
             "active"=>true
 
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>3,
             "name"=>"water",
             "description"=>"this is a description!",
@@ -40,7 +40,7 @@ class itemSeeder extends Seeder
             "featured"=>true,
             "active"=>true
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>4,
             "name"=>"mozzarella parma",
             "description"=>"this is a description!",
@@ -48,7 +48,7 @@ class itemSeeder extends Seeder
             "featured"=>true,
             "active"=>true
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>5,
             "name"=>"Homemade Panna Cotta",
             "description"=>"this is a description!",
@@ -56,7 +56,7 @@ class itemSeeder extends Seeder
             "featured"=>true,
             "active"=>true
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>6,
             "name"=>"Carpaccio runds",
             "description"=>"this is a description!",
@@ -64,7 +64,7 @@ class itemSeeder extends Seeder
             "featured"=>true,
             "active"=>true
         ]);
-        item::firstOrCreate([
+        item::Create([
             "category_id"=>7,
             "name"=>"insalata camogli",
             "description"=>"this is a description!",
