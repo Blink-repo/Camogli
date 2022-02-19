@@ -26,18 +26,21 @@
       <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
         <category v-for="category in categories" :key="category.id" :name="category.name" :img="category.image" v-if="category.featured"/>
       </div>
-      <div class="flex item-center ">
-        <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
-        <div class="flex items-center justify-center">
-          <nuxt-link to="/shop2"><pmbtn text="bekijk alles" class=""/></nuxt-link>
-          <i class="bi bi-caret-right-fill" style="color:#a16207"></i>
+      <div>
+        <div class="flex item-center mb-8">
+          <h1 class="m-3 text-2xl font-semibold">Populaire gerechten</h1>
+          <div class="flex items-center justify-center">
+            <nuxt-link to="/shop2"><pmbtn text="bekijk alles" class=""/></nuxt-link>
+            <i class="bi bi-caret-right-fill" style="color:#a16207"></i>
+          </div>
+        </div>
+        <div v-dragscroll class="flex items-center overflow-hidden">
+          <div v-on:click="getSelectedItem(item.id)" class="w-50" v-for="item in items" :key="item.id" v-if="item.featured">
+            <card :name="item.name" :price="item.price" :img="item.image"/>
+          </div>
         </div>
       </div>
-      <div v-dragscroll class="flex items-center overflow-hidden">
-        <div v-on:click="getSelectedItem(item.id)" class="w-50" v-for="item in items" :key="item.id" v-if="item.featured">
-          <card :name="item.name" :price="item.price" :img="item.image"/>
-        </div>
-      </div>
+
       <div class="flex justify-center">
     <floating-navbar class="fixed bottom-2 "/>
     </div>

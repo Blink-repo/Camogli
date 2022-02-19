@@ -4,7 +4,7 @@
     </div>
     <div class="flex justify-center">
       <div class="p-5 h-screen sm:h-5/6 sm:w-5/6 lg:w-4/6 xl:w-3/6 2xl:w-2/6 w-screen bg-white rounded-t-3xl rounded-3xl shadow-2xl">
-        <i v-on:click="close" class="text-right bi bi-x cursor-pointer"></i>
+        <i v-on:click="close" class="bi bi-x cursor-pointer text-2xl"></i>
 
         <div class="h-3/6 flex justify-center">
           <img :src="item.image" class="object-cover h-96 w-full rounded-2xl shadow-2xl">

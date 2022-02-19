@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen bg-gray-200">
+  <div class="h-screen w-screen bg-gray-200 overflow-x-scroll">
     <div class=" rounded-b-3xl bg-gray-100 text-black py-3.5 px-6 h-1/5 lg:h-1/6 content-center">
       <div class="flex justify-between items-center align-center">
         <h1 class="text-2xl text-yellow-700 font-semibold top-0 mt-4">Camogli</h1>
@@ -7,7 +7,6 @@
         </button>
       </div>
       <h1 class="font-semibold top-0 items-center pb-3">Verse Italiaanse gerechten</h1>
-
     </div>
 
     <div class="flex items-center justify-center rounded-xl relative duration-300 ease-in" :class="[show ? '-top-5' : 'top-0']" >
@@ -21,15 +20,11 @@
       <div v-dragscroll class="flex items-center gap-4 overflow-hidden">
         <category v-for="category in categories" :key="category.id" :name="category.name" :img="category.image"/>
       </div>
-      <div class="rounded-tr-3xl">
+      <div class="rounded-tr-3xl mb-14">
         <h1 class="ml-5 text-2xl font-bold">Ons <span class="text-yellow-700">Menu</span></h1>
         <div v-for="category in categories" :key="category.id">
           <div class="flex justify-between">
             <h1 class="m-5 text-2xl font-semibold">{{category.name}}</h1>
-            <div class="flex items-center justify-center">
-              <pmbtn text="bekijk alles" class=""/>
-              <i class="bi bi-caret-right-fill" style="color:#a16207"></i>
-            </div>
           </div>
           <div v-dragscroll class="flex items-center overflow-hidden">
             <div v-on:click="getSelectedItem(item.id)" class="w-50" v-for="item in items" :key="item.id">
@@ -41,7 +36,7 @@
       <div class="flex justify-center">
     <floating-navbar class="fixed bottom-2"/>
     </div>
-      <div v-show="card_details" class="fixed duration-300 ease-in" :class="[card_details ? '-top-20' : '']">
+      <div v-show="card_details" class="fixed duration-300 ease-in -top-20">
         <card-details :item="selected" @close="closeCard"/>
       </div>
     </div>
@@ -123,12 +118,12 @@ export default {
       }
       console.log(this.selected);
       this.card_details = true;
-
       return this.selected
     }
 }}
 </script>
 <style>
+
 
 
 </style>
