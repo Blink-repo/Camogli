@@ -5,6 +5,7 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\itemController;
 use App\Http\Controllers\restaurantController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\orderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,12 @@ Route::group(['prefix' => 'item', 'as' => 'item.'], function (){
     Route::delete('/delete/{id}', [itemController::class, 'destroy'])->name('delete');
     Route::put('/update/{id}', [itemController::class, 'update'])->name('update');
     Route::get('/edit/{id}', [itemController::class, 'edit'])->name('edit');
+});
+
+Route::group(['prefix' => 'orders', 'as' => 'orders.'], function (){
+    Route::get('/', [orderController::class, 'index'])->name('index');
+    Route::get('/details/{id}', [orderController::class, 'edit'])->name('details');
+
 });
 
 Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.'], function (){

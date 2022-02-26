@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\item;
+use App\Models\order;
+use App\Models\orderDetails;
 use Illuminate\Http\Request;
 
 class orderController extends Controller
@@ -9,11 +12,15 @@ class orderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $items = item::all();
+        $orders = order::all();
+        $order_details = orderDetails::all();
+
+        return view("admin.orders.all")->with('items', $items)->with('orders', $orders)->with('order_details', $order_details);
+
     }
 
     /**
@@ -52,11 +59,13 @@ class orderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $order = order::find($id);
+        $details = orderDetails::where('order_id', $id)->get();
+        $items = item::all();
+        return view("admin.orders.details")->with('details', $details)->with('order', $order)->with('items', $items);
     }
 
     /**

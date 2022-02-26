@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div>
-                <a href="{{route('item.create')}}" class="bg-indigo-500 text-white rounded-lg font-bold m-4 p-4 hover:p-5">Toevoegen</a>
+                <a href="{{route('item.create')}}" class="bg-indigo-500 text-white rounded-lg font-bold m-4 p-4 hover:p-5 duration-300 ">Toevoegen</a>
             </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div>

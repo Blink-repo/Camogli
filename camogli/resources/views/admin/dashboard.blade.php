@@ -8,10 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="my-4 font-bold text-3xl">
-                <h1 class="text-purple-800">Overzicht</h1>
+                <h1 class="text-purple-800 m-2">Overzicht</h1>
             </div>
-            <div class="grid grid-cols-4 gap-4">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="grid sm:grid-cols-4 sm:gap-4 grid-cols-1">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg m-4">
                     <div class="text-center font-bold uppercase text-purple-700 m-2">
                         Categories
                     </div>
@@ -19,7 +19,7 @@
                         {{$stats[0]['categories']}}
                     </div>
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg m-4">
                     <div class="text-center font-bold uppercase text-yellow-400 m-2">
                         Items
                     </div>
@@ -28,20 +28,21 @@
 
                     </div>
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg m-4">
                     <div class="text-center font-bold uppercase text-red-500 m-2">
                         Orders
                     </div>
                     <div class="text-5xl float-right m-4">
-                        0
+                        {{$stats[0]['orders']}}
+
                     </div>
                 </div>
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="bg-white overflow-hidden shadow-xl rounded-lg m-4">
                     <div class="text-center font-bold uppercase text-green-500 m-2">
-                        Total Orders
+                        Total earned
                     </div>
                     <div class="text-5xl float-right m-4">
-                        € 0
+                        €{{$stats[0]['total']}}
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class=" sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="grid grid-cols-3 gap-4 m-8">
                     <form class="col-start-2" action="/category/store" method="post" enctype="multipart/form-data">
