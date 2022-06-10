@@ -10,7 +10,7 @@
             <div class="my-4 font-bold text-3xl">
                 <h1 class="text-purple-800 m-2">Overzicht</h1>
             </div>
-            <div class="grid sm:grid-cols-4 sm:gap-4 grid-cols-1">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 sm:gap-4 grid-cols-1">
                 <div class="bg-white overflow-hidden shadow-xl rounded-lg m-4">
                     <div class="text-center font-bold uppercase text-purple-700 m-2">
                         Categories

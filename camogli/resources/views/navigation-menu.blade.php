@@ -165,6 +165,18 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('orders.index') }}" :active="request()->routeIs('orders.index')">
+                {{ __('Orders') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
+                {{ __('Categories') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('item.index') }}" :active="request()->routeIs('item.index')">
+                {{ __('Items') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('restaurant.index') }}" :active="request()->routeIs('restaurant.index')">
+                {{ __('Restaurant') }}
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

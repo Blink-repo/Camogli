@@ -5,6 +5,14 @@
         </h2>
     </x-slot>
 
+    <div class="flex cursor-pointer">
+        <a href="/orders">
+        <div class="m-4 bg-white p-1 rounded-lg px-2 hover:scale-105">
+            <h1 class="text-2xl text-purple-700 font-bold"><-- Back</h1>
+        </div>
+        </a>
+    </div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -18,9 +26,9 @@
                         @foreach($details as $detail)
                             @foreach($items as $item)
                                 @if($item->id == $detail->item_id)
-                                    <div class="bg-gray-200 shadow-lg rounded-lg m-4  flex">
+                                    <div class="bg-gray-200 h-16 shadow-lg rounded-lg m-4  flex">
                                         <img src="{{$item->getFirstMediaURL('item')}}" alt="" class="w-2/6 rounded-l-lg object-cover">
-                                        <h1 class="text-xl text-center m-auto w-full">{{$item->name}}</h1>
+                                        <h1 class="text-lg text-center m-auto w-full">{{$item->name}}</h1>
                                     </div>
                                 @endif
                             @endforeach
